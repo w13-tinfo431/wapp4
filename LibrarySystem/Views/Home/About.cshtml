@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LibrarySystem.ViewModels.RegisterDateGroup>
+
+@{
+    ViewBag.Title = "Consumer Body Statistics";
+}
+
+<h2>Consumer Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Register Date
+        </th>
+        <th>
+            Consumers
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterDate)
+            </td>
+            <td>
+                @item.ConsumerCount
+            </td>
+        </tr>
+    }
+</table>

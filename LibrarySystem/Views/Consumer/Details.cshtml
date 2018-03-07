@@ -1,0 +1,66 @@
+﻿@model LibrarySystem.Models.Consumer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Consumer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RegisterDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Transactions)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Referrence ID</th>
+                    <th>Book Title</th>
+                    <th>Price</th>
+                    <th>Transaction Date</th>
+                </tr>
+                @foreach (var item in Model.Transactions)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReferrenceID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inventory.BookTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inventory.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                </tr>
+        }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ConsumerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
